@@ -15,10 +15,11 @@
       </router-link>
 
       <router-link
-        :to="{ name: 'EventList', query: { page: page - 1 } }"
+        id="page-next"
+        :to="{ name: 'EventList', query: { page: page + 1 } }"
         rel="next"
         v-if="hasNextPage"
-        >&#62; Next
+        >Next &#62;
       </router-link>
     </div>
   </div>
@@ -51,7 +52,9 @@ export default {
           this.events = response.data;
           this.totalEvents = response.headers["x-total-count"];
         })
-        .catch(() => {});
+        .catch((error) => {
+          console.log(error);
+        });
     });
   },
   computed: {
