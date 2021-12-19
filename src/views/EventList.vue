@@ -22,17 +22,15 @@ export default {
   data() {
     return {
       events: null,
-    }
+    };
   },
   created() {
     EventService.getEvents()
-        .then(response => {
-          this.events = response.data;
-        })
-        .catch(error => {
-
-        })
-  }
+      .then((response) => {
+        this.events = response.data;
+      })
+      .catch(() => {});
+  },
 };
 </script>
 
@@ -42,5 +40,4 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-
 </style>

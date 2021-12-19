@@ -11,20 +11,18 @@ import EventService from "@/services/EventService";
 
 export default {
   name: "EventDetails",
-  props: ['id'],
+  props: ["id"],
   data() {
     return {
       event: null,
-    }
+    };
   },
   created() {
     EventService.getEvent(this.id)
-        .then((response) => {
-          this.event = response.data;
-        })
-        .catch(() => {
-
-        })
-  }
-}
+      .then((response) => {
+        this.event = response.data;
+      })
+      .catch(() => {});
+  },
+};
 </script>
